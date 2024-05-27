@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PruebasInicial.Services;
 using System.Runtime.CompilerServices;
+using System.Text.Encodings.Web;
 
 namespace PruebasInicial.Controllers
 {
@@ -42,13 +43,13 @@ namespace PruebasInicial.Controllers
         }
 
         [HttpGet]
-        [Route("Concatena/{cadena1:string}/{cadena2:string}")]
+        [Route("Concatena/{cadena1}/{cadena2}")]
         public string Concatena(string cadena1, string cadena2)
         {
-            return this.Concatenador.contatena(cadena1,cadena2);
+            return HtmlEncoder.Default.Encode(this.Concatenador.contatena(cadena1,cadena2));
         }
         [HttpGet]
-        [Route("Concatena/{cadena1:string}/{cadena2:string}")]
+        [Route("RestaCadena/{cadena1}/{cadena2}")]
         public int RestaCadena(string cadena1, string cadena2)
         {
             return this.Concatenador.diferenciaContaje(cadena1, cadena2);
