@@ -10,6 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ICalculadora, CalculadoraClasica>();
 builder.Services.AddScoped<IConcatenador, ConcatenadorUno>();
+builder.Services.AddScoped<IMultiplosyDivisores, MultiplosYDivisoresUno>();
 
 var app = builder.Build();
 
