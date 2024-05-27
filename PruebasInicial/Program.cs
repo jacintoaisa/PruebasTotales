@@ -9,6 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ICalculadora, CalculadoraClasica>();
+builder.Services.AddScoped<IConcatenador, ConcatenadorUno>();
 
 var app = builder.Build();
 
