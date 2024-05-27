@@ -9,10 +9,12 @@ namespace PruebasInicial.Controllers
     public class WeatherForecastController : ControllerBase
     { 
         private readonly ICalculadora MiCalculadora;
+        private readonly IConcatenador Concatenador;
 
-        public WeatherForecastController(ICalculadora calculadora)
+        public WeatherForecastController(ICalculadora calculadora, IConcatenador concatenador)
         {
             this.MiCalculadora = calculadora;
+            this.Concatenador = concatenador;
         }
         [HttpGet]
         [Route("GetSuma/{numero1:int}/{numero2:int}")]
@@ -38,5 +40,19 @@ namespace PruebasInicial.Controllers
         {
             return MiCalculadora.Divide(numero1, numero2);
         }
+
+        [HttpGet]
+        [Route("Concatena/{cadena1:string}/{cadena2:string}")]
+        public string Concatena(string cadena1, string cadena2)
+        {
+            return this.Concatenador.contatena(cadena1,cadena2);
+        }
+        [HttpGet]
+        [Route("Concatena/{cadena1:string}/{cadena2:string}")]
+        public int RestaCadena(string cadena1, string cadena2)
+        {
+            return this.Concatenador.diferenciaContaje(cadena1, cadena2);
+        }
+
     }
 }
